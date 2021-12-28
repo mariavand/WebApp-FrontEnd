@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+		<style>			
+			/*Όλα τα κείμενα της σελίδας να είναι πάντα στο κέντρο*/
+			body{
+				text-align: center;
+			}
+			/*Γαλάζιο background*/
+			#sumnews {
+				background: #aae0f2;				
+			}
+			/*Στοιχεία επικοινωνίας της σελίδας να έχουν μπλε χρώμα και γράμματα άσπρα*/
+			#contactus{
+				background: #04388c;
+				color: white;
+			}
+			/*Το κομμάτι που αναφέρεται στο copyright έχει οριστεί να είναι σκούρο μπλέ με άσπρα γράμματα*/		
+			#footerinfo{
+				background: #1e1a52;
+				color: white;
+			}			
+		</style>
+
+	</head>
+
+	<body>
+		<!--Δημιουργία μπάρας πλοήγησης που μαζεύεται στις μικρές συσκευές με ένα κουμπί-->
+		<nav class="navbar navbar-expand-sm navbar-light bg-light justify-content-center">
+			<div class="container-fluid">
+				<!-- Λογότυπο στα αριστερά με πλάτος 40 pixels -->		
+				<a href="#" class="navbar-brand">
+					<img src="images.png" alt="Logo" style="width:40px;">
+				</a>
+				<!--Το κουμπί για τις μικρές συσκευές-->
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResp">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResp">	
+					<!--Λίστα από links με pills αναπαράσταση για την πλοήγηση του χρήστη-->
+					<ul class="nav nav-pills">
+						<li class="nav-item">
+							<a class="nav-link" href="home.html">Αρχική</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="news.html">Νέα</a>
+						</li>					
+						<li class="nav-item">
+							<a class="nav-link" href="vaccine.html">Ραντεβού για εμβολιασμό</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="statistics.html">Στατιστικά Εμβολιασμού</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="questions.html">Συχνές Ερωτήσεις</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="contact.html">Επικοινωνία</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		
+		<!--Λίστα νέων με εικόνες-->
+		<div id=sumnews class="container-fluid py-5">
+			<div class="row">
+				<div class="col">
+					<div class="list-group">
+						<!--Κάθε αντικείμενο της λίστας εάν πατηθεί μεταφέρεται στην ιστοσελίδα του άρθρου. Είναι flexible, με τίτλο, ημερομηνία δημοσίευσης του άρθρου, ενδεικτική εικόνα, συνοπτική περιγραφή και κάτω κάτω αναγράφεται "Περισσότερα...".-->
+						<a href="https://emvolio.gov.gr/enimerosi-diapisteymenon-syntakton-gia-ethniko-shedio-emvoliastikis-kalypsis-kata-tis-covid-19-11" class="list-group-item list-group-item-action flex-column align-items-start">
+							<div class="d-flex w-100 justify-content-between">
+								<h5 class="mb-1">Ενημέρωση διαπιστευμένων συντακτών για το Εθνικό Σχέδιο εμβολιαστικής κάλυψης κατά της COVID-19, από την Πρόεδρο της Εθνικής Επιτροπής Εμβολιασμών Μαρία Θεοδωρίδου και τον Γ.Γ. Πρωτοβάθμιας Φροντίδας Υγείας Μάριο Θεμιστοκλέους</h5>
+								<small>Δευτέρα, 26 Απριλίου, 2021 - 22:00</small>
+							</div>
+							<img class="img-fluid py-5" src="news1.png" alt="News1">
+							<p class="mb-1">ΣΥΝΤΟΝΙΣΤΗΣ: Καλησπέρα σας από το Υπουργείο Υγείας και καλή Μεγάλη Εβδομάδα. Ξεκινά η ενημέρωση για το Εθνικό Σχέδιο εμβολιαστικής κάλυψης κατά της νόσου COVID-19 από την Ομότιμη Καθηγήτρια Παιδιατρικής και Πρόεδρο της Εθνικής Επιτροπής Εμβολιασμών Μαρία Θεοδωρίδου και τον Γενικό...</p>
+							<small>Περισσότερα...</small>
+						</a>
+						<a href="https://emvolio.gov.gr/proteraiopoiisi-emvoliasmoy-kata-tis-covid-19" class="list-group-item list-group-item-action flex-column align-items-start">
+							<div class="d-flex w-100 justify-content-between">
+								<h5 class="mb-1">Προτεραιοποίηση εμβολιασμού κατά της Covid-19</h5>
+								<small class="text-muted">Δευτέρα, 19 Απριλίου, 2021 - 22:07</small>
+							</div>
+							<img class="img-fluid  py-5" src="news2.png" alt="News2">
+							<p class="mb-1">Η σειρά προτεραιοποίησης των ομάδων του πληθυσμού για εμβολιασμό κατά του κορωνοϊού Covid-19 διαμορφώνεται σε εννέα επιμέρους κατηγορίες 1 α. Υγειονομικοί και προσωπικό κοινωνικών υπηρεσιών β. Ασθενείς και προσωπικό σε θεραπευτήρια χρονίως πασχόντων, κέντρα αποθεραπείας και...</p>
+							<small class="text-muted">Περισσότερα...</small>
+						</a>
+						<a href="https://emvolio.gov.gr/dilosi-genikoy-grammatea-pfy-m-themistokleoys-gia-tin-anavoli-ton-simerinon-programmatismenon" class="list-group-item list-group-item-action flex-column align-items-start">
+							<div class="d-flex w-100 justify-content-between">
+								<h5 class="mb-1">Δήλωση Γενικού Γραμματέα ΠΦΥ Μ. Θεμιστοκλέους για την αναβολή των σημερινών προγραμματισμένων εμβολιασμών</h5>
+								<small class="text-muted">Τρίτη, 16 Φεβρουαρίου, 2021 - 21:30</small>
+							</div>
+							<img class="img-fluid  py-5" src="news3.png" alt="News3">
+							<p class="mb-1">Ο Γενικός Γραμματέας Πρωτοβάθμιας Φροντίδας Υγείας, Μάριος Θεμιστοκλέους έκανε την ακόλουθη δήλωση: «Έχουμε ήδη ανακοινώσει ότι προτάσσοντας την ασφάλεια των πολιτών, οι σημερινοί προγραμματισμένοι εμβολιασμοί στον νομό Αττικής αναβάλλονται. Τις επόμενες ημέρες θα ανακοινώσουμε...</p>
+							<small class="text-muted">Περισσότερα...</small>
+						</a>
+						<a href="https://emvolio.gov.gr/ti-horigisi-toy-emvolioy-tis-astrazeneca-stoys-polites-ilikias-eos-kai-64-eton-apofasise-omofona-i" class="list-group-item list-group-item-action flex-column align-items-start">
+							<div class="d-flex w-100 justify-content-between">
+								<h5 class="mb-1">Τη χορήγηση του εμβολίου της AstraZeneca στους πολίτες ηλικίας έως και 64 ετών αποφάσισε ομόφωνα η Εθνική Επιτροπή Εμβολιασμών</h5>
+								<small class="text-muted">Παρασκευή, 5 Φεβρουαρίου, 2021 - 14:11</small>
+							</div>
+							<img class="img-fluid  py-5" src="news4.png" alt="News4">
+							<p class="mb-1">Ολοκληρώθηκε η συνεδρίαση της Εθνικής Επιτροπής Εμβολιασμών, η οποία αποφάσισε ομόφωνα τη χορήγηση του εμβολίου της AstraZeneca στους πολίτες ηλικίας έως και 64 ετών. Μετά τη συνεδρίαση, ακολούθησαν δηλώσεις της Προέδρου της Εθνικής Επιτροπής Εμβολιασμών Μαρίας Θεοδωρίδου και του Γενικού Γραμματέα...</p>
+							<small class="text-muted">Περισσότερα...</small>
+						</a>
+					</div>
+				</div>				
+			</div>
+		</div>
+
+		<!--Στοιχεία Επικοινωνίας-->
+		<div id="contactus" class="container-fluid py-4">
+			<div class="row">
+				<div class="col">
+					<h2>Στοιχεία Επικοινωνίας</h2>
+				</div>
+			</div>
+
+			<div class="row">
+				<!--Geolocation-->
+				<div class="col-md-6 col-xs-12 mt-5">
+					<!--Ενσωματομένος χάρτης-->
+					<div class="embed-responsive embed-responsive-16by9">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3142.6136818025857!2d23.787996115325125!3d38.03278477971337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a198edaaf054d1%3A0x182534b46eb6e4d1!2zzpHOs8-BzqzPhs-Jzr0gMywgzpzOsc-Bzr_Pjc-DzrkgMTUxIDIz!5e0!3m2!1sel!2sgr!4v1621437421649!5m2!1sel!2sgr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-xs-12 mt-5">
+					<!--Στοιχεία επικοινωνίας με το ΕΟΔΥ Αθήνας. Οι κλάσεις "fas..." είναι για τα εικονίδια τοποθεσίας και τηλεφώνου. Τα πέρνουμε από την βιβλιοθήκη fontawesome.-->
+					<h5>ΕΟΔΥ Αθήνας</h5>
+					<p class="pt-2"><i class="fas fa-map-marker-alt"></i> Αγράφων 3-5, Μαρούσι, Τ.Κ. 151-23</p>
+					<p><i class="fas fa-phone"></i> 210 5212000</p>
+				</div>
+			</div>
+		</div>
+	
+		<!--Footer-->
+		<div id="footerinfo" class="container-fluid">
+			<footer>
+				<div class="row">
+					<div class="col my-4">
+						<p>Copyright &copy; 2021<a href="https://www.ds.unipi.gr/"> Βανδουλάκη Μαρία Φοιτήτρια Ψηφιακών Συστημάτων</a></p>
+					</div>
+				</div>
+			</footer>
+		</div>
+		
+	</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<!--Ορίζουμε το encoding-->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--Φέρνουμε τις απαραίτητες βιβλιοθήκες για την υλοποίηση της ιστοσελίδας-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+		<!--Fontawesome βιβλιοθήκη είναι για τα icons που υπάρχουν στο footer-->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+		<style>
+			/* Οι εικόνες πρέπει να ανταποκρίνονται σε όλες τις συσκευές (responsive) */
+			.carousel-inner img {
+				width: 100%;
+				height: 100%;
+			}
+			/*Ρύθμιση των ταμπέλων πάνω στο carousel έτσι ώστε να μην είναι κάτω αλλά στο κέντρο περίπου (δεδομένου ότι έχει οριστεί με ποσοστό θα είναι responsive) και το μαύρο background΄να διαφανίζει*/
+			.efe {
+ 				background: rgba(0, 0, 0, 0.5);
+ 				margin-bottom: 22%;
+			}
+			/*Όλα τα κείμενα της σελίδας να είναι πάντα στο κέντρο*/
+			body{
+				text-align: center;
+			}
+			/*Γενικές πληροφορίες της σελίδας, συνοπτικά νέα και στοιχεία επικοινωνίας του footer να έχουν μπλε χρώμα και γράμματα άσπρα*/
+			#general,  #sumnews, #contactus {
+				background: #04388c;
+				color: white;
+			}
+			/*Οι κάρτες με πληροφορίες σχετικά με την διαδικασία εμβολιασμού και τα βίντεο έχουν λευκό
+			background με μαύρα γράμματα*/
+			#diadikasia, #video {
+				background: white;
+				color: black;
+			}
+			/*Το κομμάτι που αναφέρεται στο copyright έχει οριστεί να είναι σκούρο μπλέ με άσπρα γράμματα*/
+			#footerinfo{
+				background: #1e1a52;
+				color: white;
+			}
+			/*Όταν το ποντίκη πηγαίνει πάνω σε μία από τις κάρτες με τις πληροφορίες σχετικά με την διαδικασία εμβολιασμού τότε η κάρτα γίνεται γαλάζια*/
+			.card:hover{
+				background-color: #a1e0f0
+			}			
+		</style>
+
+	</head>
+
+	<body>
+		<!--Δημιουργία μπάρας πλοήγησης που μαζεύεται στις μικρές συσκευές με ένα κουμπί-->
+		<nav class="navbar navbar-expand-sm navbar-light bg-light justify-content-center">
+			<div class="container-fluid">
+				<!-- Λογότυπο στα αριστερά με πλάτος 40 pixels -->		
+				<a href="#" class="navbar-brand">
+					<img src="images.png" alt="Logo" style="width:40px;">
+				</a>
+				<!--Το κουμπί για τις μικρές συσκευές-->
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResp">
+					<span class="navbar-toggler-icon"></span>
+				</button>				
+				<div class="collapse navbar-collapse" id="navbarResp">
+					<!--Λίστα από links με pills αναπαράσταση για την πλοήγηση του χρήστη-->	
+					<ul class="nav nav-pills">
+						<li class="nav-item">
+							<a class="nav-link active" href="home.html">Αρχική</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="news.html">Νέα</a>
+						</li>					
+						<li class="nav-item">
+							<a class="nav-link" href="vaccine.html">Ραντεβού για εμβολιασμό</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="statistics.html">Στατιστικά Εμβολιασμού</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="questions.html">Συχνές Ερωτήσεις</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="contact.html">Επικοινωνία</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+				
+		<!--Carousel χωρίς container για να πιάνει όλο το πλάτος της οθόνης-->
+		<div id="health" class="carousel slide carousel-fade" data-ride="carousel">
+
+				<!-- Οι δείκτες κάτω στο κέντρο του Carousel σε μία λίστα με το πρώτο ενεργό για αφετηρία-->
+				<ul class="carousel-indicators">
+					<li data-target="#health" data-slide-to="0" class="active"></li>
+					<li data-target="#health" data-slide-to="1"></li>
+					<li data-target="#health" data-slide-to="2"></li>
+					<li data-target="#health" data-slide-to="3"></li>
+				</ul>
+
+				<!-- Το slideshow με εικόνες και μικρά κείμενα που βρίσκονται στο div και είναι ημιδιάφανα (το ορίσαμε στο style) και τοποθετημένα όσο πιο κεντρικά γίνεται.
+				Οι εικόνες έχουν πλάτος 100%-->
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img class="d-block w-100" src="covidpic3.jpg" alt="Health3">
+						<div class="efe carousel-caption d-none d-md-block">
+							<h3>Εθνικός Οργανισμός Εμβολιασμού</h3>
+							<p>Ενημερωθείτε έγκαιρα.</p>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="covidpic.jpg" alt="Health1">
+						<div class="efe carousel-caption d-none d-md-block">
+							<h3>Μένουμε Σπίτι!</h3>
+							<p>Αναλαμβάνοντας την ατομική μας ευθύνη, καταπολεμούμε τον ιό ως κοινωνία.</p>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="covidsymptoms.jpg" alt="Health2">
+						<div class="efe carousel-caption d-none d-md-block">
+							<h3>Προσέχουμε και προστατέυουμε τους γύρω μας!</h3>
+							<p>Σε περίπτωση εμφάνισης συμπτωμάτων δεν ερχόμαστε σε επαφή με άλλους συνανθρώπους.</p>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="covidpic2.jpg" alt="Health3">
+						<div class="efe carousel-caption d-none d-md-block">
+							<h3>Εμβολιασμός!</h3>
+							<p>Ενημερωθείτε για τον εμβολιασμό και κλείστε ραντεβού άμεσα.</p>
+						</div>
+					</div>
+				</div>
+						
+				<!-- Τα βελάκια για το Carousel, αριστερά και δεξιά προκυμαίνου ο χρήστης να μπορεί να αλλάζει μόνος του τις εικόνες εάν το επιθυμεί-->
+				<a class="carousel-control-prev" href="#health" data-slide="prev">
+					<span class="carousel-control-prev-icon"></span>
+				</a>
+				<a class="carousel-control-next" href="#health" data-slide="next">
+					<span class="carousel-control-next-icon"></span>
+				</a>			
+		</div>
+
+		<!--Επόμενο container με μπλε background με padding top και bottom 5. Το lead αλλάζει την εμφάνηση του κειμένου.-->
+		<div id="general" class="container-fluid py-5">
+			<div class="row">
+				<div class="col">
+					<p class="lead">Στην πόλη Wuhan,επαρχία Hubei, στην Κίνα, εμφανίστηκε συρροή κρουσμάτων πνευμονίας. Στις 9 Ιανουαρίου 2020 οι υγειονομικές αρχές της Κίνας ανακοίνωσαν ότι πρόκειται για νέο στέλεχος κορωνοϊού (2019-nCoV). Οι κορωνοϊοί είναι μία ομάδα ιών που συνήθως προκαλούν αναπνευστικές λοιμώξεις με ποικίλη σοβαρότητα στον άνθρωπο και στα ζώα. Εκτιμάται ότι περίπου το ένα τρίτο των λοιμώξεων ανώτερου αναπνευστικού στον άνθρωπο μπορεί να προκαλείται από κορωνοϊούς.</p>
+					<p class="lead">Ο Εθνικός Οργανισμός Δημόσιας Υγείας (ΕΟΔΥ), παρακολουθεί από την αρχή τις εξελίξεις και βρίσκεται σε συνεχή επικοινωνία τόσο με το Ευρωπαϊκό Κέντρο Πρόληψης και Ελέγχου Νοσημάτων (ECDC) όσο και τον Παγκόσμιο Οργανισμό Υγείας (WHO). Ο ΕΟΔΥ παραμένει σε επαγρύπνηση σχετικά με ενδεχόμενα κρούσματα της νόσου σε ταξιδιώτες ενώ έχει ήδη εκδώσει και επικαιροποιεί συστηματικά ενημερωτικό υλικό και εξειδικευμένες οδηγίες, που μπορείτε να βρείτε στην ιστοσελίδα μας.</p>
+				</div>
+			</div>
+		</div>
+
+		<!--Καρτέλες με πληροφορίες σχετικά με την διαδικασία του εμβολιασμού με hover για να γίνοται γαλάζιο.-->
+		<div id=diadikasia class="container-fluid py-4">
+			<div class="row">
+				<div class="col-md-4 col-xs-12 my-5">
+					<div class="card">
+						<!--Η κάθε κάρτα έχει δύο σκέλη: στο πάνω σκέλος έχει τοποθετηθεί μία εικόνα και το σώμα έχει μία συνοπτική περιγραφή με τίτλο. Ο τίτλος είναι με heading μεγέθους 5, το display-5 είναι ανάλογο του <h5>.-->					
+						<img class="card-img-top" src="check.png" alt="Health4">
+						<div class="card-body">
+							<h5 class="display-5">Γενικές Πληροφορίες</h5>
+							<p>Ενημέρωση σχετικά με το εμβόλιο ενάντια στον κορονοϊό Covid-19</p>		
+							<p class="lead">
+								<!--Κουμπί για περισσότερες πληροφορίες.-->
+								<a class="btn btn-primary btn-lg" href="https://emvolio.gov.gr/plirofories" role="button">Περισσότερα...</a>
+							</p>
+						</div>				
+					</div>
+				</div>
+				<div class="col-md-4 col-xs-12 my-5">
+					<div class="card">							
+						<img class="card-img-top" src="vaccinating.png" alt="Health5">
+						<div class="card-body">
+							<h5 class="display-5">Διαδικασία Εμβολιασμού</h5>
+							<p>Εθνικό Επιχειρησιακό Σχέδιο Εμβολιασμών - Επιχείρηση «Ελευθερία»</p>		
+							<p class="lead">
+								<a class="btn btn-primary btn-lg" href="https://emvolio.gov.gr/diadikasia-emvoliasmou" role="button">Περισσότερα...</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-xs-12 my-5">
+					<div class="card">						
+						<img class="card-img-top" src="qa.png" alt="Health6">
+						<div class="card-body">
+							<h5 class="display-5">Συχνές Ερωτήσεις</h5>
+							<p>Απαντήσεις σε ερωτήσεις για τα εμβόλια και τον εμβολιασμό κατά της Covid-19</p>						
+							<p class="lead">
+								<a class="btn btn-primary btn-lg" href="questions.html" role="button">Περισσότερα...</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--Λίστα με συνοπτικά νέα-->
+		<div id=sumnews class="container-fluid py-4">
+			<div class="row mb-2">
+				<div class="col">
+					<h2>Συνοπτικά νέα</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">			
+					<div class="list-group">
+						<!--Κάθε αντικείμενο της λίστας εάν πατηθεί μεταφέρεται στην ιστοσελίδα του άρθρου. Είναι flexible, με τίτλο, ημερομηνία δημοσίευσης του άρθρου και κάτω κάτω αναγράφεται "Περισσότερα...".-->
+						<a href="https://gr.euronews.com/2021/04/23/covid-19-kalpazei-metadosi-tou-koronoiou-fovoi-gia-tin-indiki-metallaksi-stin-europi" class="list-group-item list-group-item-action flex-column align-items-start">
+							<div class="d-flex w-100 justify-content-between">
+								<h5 class="mb-1">COVID-19: Καλπάζει η μετάδοση του κορονοϊού - Φόβοι για την ινδική μετάλλαξη στην Ευρώπη</h5>
+								<small>23 Απριλίου 2021</small>
+							</div>							
+							<small>Περισσότερα...</small>
+						</a>
+						<a href="https://www.iatropedia.gr/paidi/koronoios-oi-egkyes-me-covid-19-kindynevoun-perissotero-apo-epiplokes/142980/" class="list-group-item list-group-item-action flex-column align-items-start">
+							<div class="d-flex w-100 justify-content-between">
+								<h5 class="mb-1">Κορονοϊός: Οι έγκυες με COVID-19 κινδυνεύουν περισσότερο από επιπλοκές</h5>
+								<small class="text-muted">23 Απριλίου 2021</small>
+							</div>							
+							<small class="text-muted">Περισσότερα...</small>
+						</a>
+						<a href="https://www.kathimerini.gr/world/561339700/cdc-elachista-ta-peristatika-covid-19-meta-apo-diplo-emvoliasmo/" class="list-group-item list-group-item-action flex-column align-items-start">
+							<div class="d-flex w-100 justify-content-between">
+								<h5 class="mb-1">CDC: Ελάχιστα τα περιστατικά Covid-19 μετά από διπλό εμβολιασμό</h5>
+								<small class="text-muted">22 Απριλίου 2021</small>
+							</div>							
+							<small class="text-muted">Περισσότερα...</small>
+						</a>						
+					</div>
+				</div>				
+			</div>
+		</div>
+
+		<div id=video class="container-fluid py-4">
+			<!--Container με βίντεο-->
+			<div class="row mb-2">
+				<div class="col">
+					<h2>Τι πρέπει να γνωρίζουμε για τον Covid-19</h2>
+				</div>
+			</div>
+			<div class="row">
+				<!--Σε Medium συσκευή τα βίντεο απεικονίζονται σε μία γραμμή. Σε eXtra Small κάθε βίντεο είναι ένα κάτω από το άλλο. Το πλάτος δεν είναι το προεπιλεγμένο αλλά μικρότερο (330) προκυμμένου να χωράει το πλαίσιο και σε μικρές συσκευές.-->
+				<div class="col-md-4 col-xs-12 my-5">
+					<iframe width="330" height="315" src="https://www.youtube.com/embed/rpitPqyjnkY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+				<div class="col-md-4 col-xs-12 my-5">
+					<iframe width="330" height="315" src="https://www.youtube.com/embed/5k2PQ2g6Cqg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+				<div class="col-md-4 col-xs-12 my-5">
+					<iframe width="330" height="315" src="https://www.youtube.com/embed/-q9GbK0uQs4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+
+		<!--Στοιχεία Επικοινωνίας-->
+		<div id="contactus" class="container-fluid py-4">
+			<div class="row">
+				<div class="col">
+					<h2>Στοιχεία Επικοινωνίας</h2>
+				</div>
+			</div>
+
+			<div class="row">
+				<!--Geolocation-->
+				<div class="col-md-6 col-xs-12 mt-5">
+					<!--Ενσωματομένος χάρτης-->
+					<div class="embed-responsive embed-responsive-16by9">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3142.6136818025857!2d23.787996115325125!3d38.03278477971337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a198edaaf054d1%3A0x182534b46eb6e4d1!2zzpHOs8-BzqzPhs-Jzr0gMywgzpzOsc-Bzr_Pjc-DzrkgMTUxIDIz!5e0!3m2!1sel!2sgr!4v1621437421649!5m2!1sel!2sgr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-xs-12 mt-5">
+					<!--Στοιχεία επικοινωνίας με το ΕΟΔΥ Αθήνας. Οι κλάσεις "fas..." είναι για τα εικονίδια τοποθεσίας και τηλεφώνου. Τα πέρνουμε από την βιβλιοθήκη fontawesome.-->
+					<h5>ΕΟΔΥ Αθήνας</h5>
+					<p class="pt-2"><i class="fas fa-map-marker-alt"></i> Αγράφων 3-5, Μαρούσι, Τ.Κ. 151-23</p>
+					<p><i class="fas fa-phone"></i> 210 5212000</p>
+				</div>
+			</div>
+		</div>
+	
+		<!--Footer-->
+		<div id="footerinfo" class="container-fluid">
+			<footer>
+				<div class="row">
+					<div class="col my-4">
+						<p>Copyright &copy; 2021<a href="https://www.ds.unipi.gr/"> Βανδουλάκη Μαρία Φοιτήτρια Ψηφιακών Συστημάτων</a></p>
+					</div>
+				</div>
+			</footer>
+		</div>
+		
+	</body>
+</html>

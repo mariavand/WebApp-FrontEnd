@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<!--Ορίζουμε το encoding-->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--Φέρνουμε τις απαραίτητες βιβλιοθήκες για την υλοποίηση της ιστοσελίδας-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+		<!--Fontawesome βιβλιοθήκη είναι για τα icons που υπάρχουν στο footer-->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+		<style>
+			/*Όλα τα κείμενα της σελίδας να είναι πάντα στο κέντρο*/
+			body{
+				text-align: center;
+			}
+			/*Στοιχεία επικοινωνίας και τα στατιστικά της σελίδας να έχουν μπλε χρώμα και γράμματα άσπρα*/
+			#stat, #contactus{
+				background: #04388c;
+				color: white;
+			}
+			/*Το κομμάτι που αναφέρεται στο copyright έχει οριστεί να είναι σκούρο μπλέ με άσπρα γράμματα*/
+			#footerinfo{
+				background: #1e1a52;
+				color: white;
+			}		
+		</style>
+
+	</head>
+
+	<body>
+		<!--Δημιουργία μπάρας πλοήγησης που μαζεύεται στις μικρές συσκευές με ένα κουμπί-->
+		<nav class="navbar navbar-expand-sm navbar-light bg-light justify-content-center">
+			<div class="container-fluid">
+				<!-- Λογότυπο στα αριστερά με πλάτος 40 pixels -->		
+				<a href="#" class="navbar-brand">
+					<img src="images.png" alt="Logo" style="width:40px;">
+				</a>
+				<!--Το κουμπί για τις μικρές συσκευές-->
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResp">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResp">	
+					<!--Λίστα από links με pills αναπαράσταση για την πλοήγηση του χρήστη-->
+					<ul class="nav nav-pills">
+						<li class="nav-item">
+							<a class="nav-link" href="home.html">Αρχική</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="news.html">Νέα</a>
+						</li>					
+						<li class="nav-item">
+							<a class="nav-link" href="vaccine.html">Ραντεβού για εμβολιασμό</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="statistics.html">Στατιστικά Εμβολιασμού</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="questions.html">Συχνές Ερωτήσεις</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="contact.html">Επικοινωνία</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!--Jumbotron που ενημερώνει τον χρήστη σχετικά με την λειτουργία της τρέχουσας σελίδας-->
+		<div class="jumbotron jumbotron-fluid mb-n1">
+			<h1 class="display-4">Στατιστικά εμβολιασμού για τον COVID-19</h1>
+			<p class="lead">Τα δεδομένα που χρησιμοποιούμαι έχουν δημοσιευτεί από την Ελληνική Κυβέρνηση.</p>
+			<!--hr δημιουργεί μια διαχωριστική γραμμή -->
+			<hr class="my-4">
+			<p class="lead">Αρχή δεδομένων: 28/12/2020</p>
+			<p class="lead">Τελευταία ενημέρωση δεδομένων: χθες</p>
+		</div>
+
+		<!--Μία μικρή φόρμα που αιτείται από τον χρήστη να βάλει ένα διάστημα ημερομηνιών για να μάθει πόσα εμβόλια έγιναν-->
+		<div id="stat" class="container-fluid py-5">
+			<form>
+				<div class="row">
+					<div class="col-md-6">
+						<h5>Ημερομηνία Από: </h5>
+						<input type="date" class="form-control" id="from">
+					</div>
+					<div class="col-md-6">
+						<h5>Ημερομηνία Έως: </h5>
+						<input type="date" class="form-control" id="to">
+					</div>
+				</div>
+				<!--Κουμπί αναζήτησης με πράσινο χρώμα που απέχει από τις ημερομηνίες 5 μονάδες-->
+				<div class="row mt-5">
+					<div class="col">
+						<button type="button" class="btn btn-success">Αναζήτηση</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<!--Πίνακας αποτελεσμάτων 5x2 διαστάσεων-->
+		<div id="res" class="container-fluid py-5">
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col"></th>						
+						<th scope="col">Αποτελέσματα</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">Εμβόλια: </th>
+						<td id="emv"></td>
+					</tr>
+					<tr>
+						<th scope="row">Εμβόλια α-δόσης: </th>
+						<td id="d1"></td>
+					</tr>
+					<tr>
+						<th scope="row">Εμβόλια β-δόσης: </th>
+						<td id="d2"></td>
+					</tr>
+					<tr>
+						<th scope="row">Συνολικά Εμβόλια μέχρι σήμερα: </th>
+						<td id="total"></td>
+					</tr>
+				</tbody>
+			</table>			
+		</div>
+
+		<script>
+			//Με το που πατηθει το μοναδικό κουμπί της σελίδας καλείτε η συγκεκριμένη συνάρτηση
+			$(function () {
+				$("button").click(function () {
+					//Η κλίση AJAX
+					$.ajax({
+						//Ορισμός πηγής από όπου θα πάρουμε τις ζητούμενες πληροφορίες
+						url: "https://data.gov.gr/api/v1/query/mdg_emvolio",
+						//Ορίζουμε την ενέργεια σε GET για να πάρουμε τις πληροφορίες
+						type: "GET",
+						//Ορίζουμε τον τύπο των δεδομένων
+						dataType: 'json',
+						//Τοποθετούμε το απαραίτητο Token
+						headers: {
+							"Authorization": "Token 75f06db619c2f639beab77e720c19554f2933dfd"
+						}					
+					})
+					.done(function (res) {
+						//Κάνουμε τα αποτελέσματα αρχικά string και έπειτα τα περνάμε από parsing
+						var obj = JSON.stringify(res);
+						var temp = JSON.parse(obj);
+
+						//Πέρνουμε τις ημερομηνίες του χρήστη
+						var fr = new Date($("#from").val());
+						var t = new Date($("#to").val());
+
+						//Για το from date
+						//Από την ημερομηνία πέρνουμε την ημέρα
+						var day = fr.getDate();
+						//Από την ημερομηνία πέρνουμε τον μήνα. Η συνάρτηση getMonth() επιστρέφει τους μήνες στο διάστημα [0,11] οπότε έχουμε +1 για να είναι στο διάστημα [1,12]
+						var month = fr.getMonth() + 1;
+						//getYear, για 2021 επιστρέφει 121 που έχει διαφορά φάσης κατά 1900 μονάδες
+						var year = fr.getYear() + 1900;
+
+						//Δημιουργούμε την κατάλληλη μορφή της ημερομηνίας	
+						if(month<9 && day<9){
+							var from = year+"-0"+month+"-0"+day+"T00:00:00";
+						}
+						else if(month<9){
+							var from = year+"-0"+month+"-"+day+"T00:00:00";
+						}
+						else if(day<9){
+							var from = year+"-"+month+"-0"+day+"T00:00:00";
+						}
+						else{
+							var from = year+"-"+month+"-"+day+"T00:00:00";
+						}
+
+
+						//Ανάλογα εργαζόμαστε για την ημερομηνία to
+						day = t.getDate();
+						month = t.getMonth() + 1;
+						year = t.getYear() + 1900;
+
+						if(month<9 && day<9){
+							var to = year+"-0"+month+"-0"+day+"T00:00:00";
+						}
+						else if(month<9){
+							var to = year+"-0"+month+"-"+day+"T00:00:00";
+						}
+						else if(day<9){
+							var to = year+"-"+month+"-0"+day+"T00:00:00";
+						}
+						else{
+							var to = year+"-"+month+"-"+day+"T00:00:00";
+						}
+
+						//Ορίζουμε τους μετρητές για να μετρήσουμε τα εμβόλια σε όλη την Ελλάδα καθώς η πηγή μας στέλνει τις πληροφορίες ανά νομό
+						var emv = 0;
+						var dose1 = 0;
+						var dose2 = 0;
+						var total = 0;
+
+						//Αρχικοποιούμε έναν δείκτη με την πρώτη ημερομηνία των Δεδομένων από τον πρώτο νομό
+						var d = temp[0].referencedate;
+
+						//Ορίζουμε επαναλυπτική διαδικασία προκυμμένου να διατρέξουμε τα δεδομένα
+						$.each(temp, function(i, item) {
+							//Σε κάθε επανάλυψη ανανεώνουμε την ημερομηνία
+							d = temp[i].referencedate;
+							//Εάν η ημερομηνία που ελέγχουμε ανήκει στο διάστημα που όρισε ο χρήστης τότε αθροίζουμε τα αντίστοιχα εμβόλια
+							if( (from <= d) && (to >= d) ){
+								emv = emv + temp[i].daytotal;
+								dose1 = dose1 + temp[i].dailydose1;
+								dose2 = dose2 + temp[i].dailydose2;
+							}
+						});
+
+						//Έπειτα από την πρώτη επαναλυπτική διαδικασία η μεταβλητή d έχει την τελευταία
+						//ημερομηνία των δεδομένων που την θέλουμε για να υπολογίσουμε τα συνολικά εμβόλια
+						//Το πεδίο totalvaccinations περιέχει σύνολο εμβολίων συγκεκριμένου νομού από την ημέρα έναρξης εμβολιασμού έως το referencedate
+						//Συνεπώς θέλουμε να αθροίσουμε τα εμβόλια όλων των νομών για την πιό πρόσφατη ημέρα
+
+						//Διατρέχουμε ξανά όλα τα δεδομένα που πήραμε και αθροίζουμε τα συνολικά εμβόλια της τελευταίας ημέρας
+						$.each(temp, function(i, item) {
+							if(d == temp[i].referencedate){
+								total = total + temp[i].totalvaccinations;
+							}
+						});
+
+						//Ενημερώνουμε τα πεδία του πίνακα με τα αποτελέσματα
+						$("#emv").text(emv);
+						$("#d1").text(dose1);
+						$("#d2").text(dose2);
+						$("#total").text(total);
+					})
+					.fail(function (error) {
+						console.log(error);
+					});
+				});
+			});
+		</script>
+		
+		<!--Στοιχεία Επικοινωνίας-->
+		<div id="contactus" class="container-fluid py-4">
+			<div class="row">
+				<div class="col">
+					<h2>Στοιχεία Επικοινωνίας</h2>
+				</div>
+			</div>
+
+			<div class="row">
+				<!--Geolocation-->
+				<div class="col-md-6 col-xs-12 mt-5">
+					<!--Ενσωματομένος χάρτης-->
+					<div class="embed-responsive embed-responsive-16by9">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3142.6136818025857!2d23.787996115325125!3d38.03278477971337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a198edaaf054d1%3A0x182534b46eb6e4d1!2zzpHOs8-BzqzPhs-Jzr0gMywgzpzOsc-Bzr_Pjc-DzrkgMTUxIDIz!5e0!3m2!1sel!2sgr!4v1621437421649!5m2!1sel!2sgr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-xs-12 mt-5">
+					<!--Στοιχεία επικοινωνίας με το ΕΟΔΥ Αθήνας. Οι κλάσεις "fas..." είναι για τα εικονίδια τοποθεσίας και τηλεφώνου. Τα πέρνουμε από την βιβλιοθήκη fontawesome.-->
+					<h5>ΕΟΔΥ Αθήνας</h5>
+					<p class="pt-2"><i class="fas fa-map-marker-alt"></i> Αγράφων 3-5, Μαρούσι, Τ.Κ. 151-23</p>
+					<p><i class="fas fa-phone"></i> 210 5212000</p>
+				</div>
+			</div>
+		</div>
+
+		<!--Footer-->
+		<div id="footerinfo" class="container-fluid">
+			<footer>
+				<div class="row">
+					<div class="col my-4">
+						<p>Copyright &copy; 2021<a href="https://www.ds.unipi.gr/"> Βανδουλάκη Μαρία Φοιτήτρια Ψηφιακών Συστημάτων</a></p>
+					</div>
+				</div>
+			</footer>
+		</div>
+		
+	</body>
+</html>

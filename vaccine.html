@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<!--Ορίζουμε το encoding-->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--Φέρνουμε τις απαραίτητες βιβλιοθήκες για την υλοποίηση της ιστοσελίδας-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+		<!--Fontawesome βιβλιοθήκη είναι για τα icons που υπάρχουν στο footer-->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+		<style>
+			/*To container με id disclaimer έχει κεντραρισμένο κείμενο και γαλάζιο φόντο*/
+			#disclaimer{
+				text-align: center;
+				background: #aae0f2;
+			}
+			/*Στοιχεία επικοινωνίας της σελίδας να έχουν μπλε χρώμα και γράμματα άσπρα*/
+			#contactus{
+				background: #04388c;
+				color: white;
+				text-align: center;
+			}
+			/*Αποτελέσματα να έχουν άσπρο φόντο*/
+			#result{
+				background: white;				
+			}
+			/*Ο πίνακας αποτελεσμάτων έχει κείμενο κεντραρισμένο*/
+			.table{				
+				text-align: center;
+			}
+			/*Η φόρμα έχει μπλε φόντο και άσπρα γράμματα*/
+			#forma {
+				background: #04388c;
+				color: white;
+			}
+			/*Το κομμάτι που αναφέρεται στο copyright έχει οριστεί να είναι σκούρο μπλέ με άσπρα γράμματα*/
+			#footerinfo{
+				background: #1e1a52;
+				color: white;
+				text-align: center;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<!--Δημιουργία μπάρας πλοήγησης που μαζεύεται στις μικρές συσκευές με ένα κουμπί-->
+		<nav class="navbar navbar-expand-sm navbar-light bg-light justify-content-center">
+			<div class="container-fluid">
+				<!-- Λογότυπο στα αριστερά με πλάτος 40 pixels -->		
+				<a href="#" class="navbar-brand">
+					<img src="images.png" alt="Logo" style="width:40px;">
+				</a>
+				<!--Το κουμπί για τις μικρές συσκευές-->
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResp">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResp">
+					<!--Λίστα από links με pills αναπαράσταση για την πλοήγηση του χρήστη-->
+					<ul class="nav nav-pills">
+						<li class="nav-item">
+							<a class="nav-link" href="home.html">Αρχική</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="news.html">Νέα</a>
+						</li>					
+						<li class="nav-item">
+							<a class="nav-link active" href="vaccine.html">Ραντεβού για εμβολιασμό</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="statistics.html">Στατιστικά Εμβολιασμού</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="questions.html">Συχνές Ερωτήσεις</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="contact.html">Επικοινωνία</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div id="disclaimer" class="container-fluid py-5">			
+			<div class="row">
+				<div class="col">
+					<h5 class="display-5">Κλείστε το ραντεβού σας άμεσα!</h5>
+					<!--hr δημιουργεί μια διαχωριστική γραμμή -->
+					<hr class="my-4">
+					<p class="lead">Πιστοποιημένα Εμβόλια από την Ευρωπαϊκή Ένωση εντελώς δωρεάν.</p>
+				</div>
+			</div>
+		</div>
+
+		<!--Form-->
+		<div id="forma" class="container-fluid py-5">
+			<form>
+				<!--Η φόρμα ξεκινάει με ένα heading μεγέθους 2 το οποίο είναι στο κέντρο-->
+				<div class="row">
+					<div class="col">
+						<h2 style="text-align: center;">Συμπληρώστε τα στοιχεία</h2>
+					</div>
+				</div>
+
+				<!--Πεδία ως προς συμπλήρωση ανά δύο, με * είναι τα υποχρεωτικά πεδία και έχει οριστεί απόσταση μεταξύ των πεδίων για να μην κολλάνε μεταξύ τους (margin στον άξονα y = 2)-->
+				<div class="row">
+					<div class="col-md-6 my-2">
+						<label for="username">Όνομα*</label>
+						<input type="text" class="form-control" placeholder="Εισάγετε Όνομα" id="username" required/>
+					</div>
+					<div class="col-md-6 my-2">
+						<label for="surname">Επώνυμο*</label>										
+						<input type="text" class="form-control" placeholder="Εισάγετε Επώνυμο" id="surname" required/>
+					</div>
+				</div>
+				
+				<!--Το email δεν είναι υποχρεωτικό πεδίο καθώς κάποιος ηλικιωμένος μπορεί να μην έχει-->
+				<div class="row">
+					<div class="col-md-6 my-2">
+						<label for="email">Ηλεκτρονική Διεύθυνση</label>
+						<input type="email" class="form-control" placeholder="Εισάγετε E-mail" id="email">
+					</div>
+					<!--Το τηλέφωνο πρέπει να έχει 10 αριθμούς από [0-9] για κάθε ψηφίο.
+						Ο έλεγχος αυτός είναι υλοποιημένος με την HTML, ιδιότητα pattern.-->
+					<div class="col-md-6 my-2">
+						<label for="telephone">Τηλέφωνο*</label>										
+						<input type="tel" class="form-control" placeholder="Εισάγετε Τηλέφωνο" id="telephone"  pattern="[0-9]{10}" required>						
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-6 my-2">
+						<label for="date">Ημερομηνία</label>
+						<!--Προσπάθησα να δημιουργήσω πιο τυχαία ημερομηνία που θα εμφφανιζόταν όταν θα φόρτωναι η σελίδα (onload="setDate()") ωστόσο δεν λειτουργεί οπότε όρισα μία προεπιλεγμένη ημερομηνία-->
+						<input type="date" class="form-control" onload="setDate()" value="2021-09-08" id="date">
+						<p>Εάν επιθυμείτε μπορείτε να αλλάξετε την ημερομηνία.</p>
+					</div>
+					<div class="col-md-6 my-2">
+						<label for="time">Ώρα</label>
+						<input type="time" class="form-control" value="19:45" id="time">
+						<p>Εάν επιθυμείτε μπορείτε να αλλάξετε την ώρα.</p>
+					</div>
+				</div>				
+
+				<div class="row">
+					<div class="col-md-6 my-2">
+						<label for="amka">Α.Μ.Κ.Α.*</label>									
+						<input type="text" class="form-control" placeholder="Εισάγετε Α.Μ.Κ.Α." id="amka" required>
+					</div>
+
+					<div class="col-md-6 my-2">
+						<label for="fullo">Φύλλο*</label>
+						<div id="fullo">		
+							<input type="radio" name="flexRadioDefault" id="male" checked>
+							<label for="male">Άνδρας</label>
+								
+							<input type="radio" name="flexRadioDefault" id="female">
+							<label for="female">Γυναίκα</label>
+						</div>						
+					</div>
+				</div>
+				
+				<!--Δύο κουμπιά, πράσινο και γαλάζιο, για υποβολή φόρμας ή ακύρωση που στέλνει τον χρήστη στην αρχική σελίδα-->
+				<div class="row">
+					<div class="col-md-6">
+						<button id="ok" type="button" class="btn btn-success my-2">Οριστική Υποβολή</button>
+					</div>
+					<div class="col-md-6">
+						<a href="home.html"><button class="btn btn-info my-2">Άκυρο</button></a>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<!--Πίνακας στοιχείων του ραντεβού 9x2 διαστάσεων.-->
+		<div id="result" class="container-fluid py-5">
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col"></th>						
+						<th scope="col">Στοιχεία Ραντεβού</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">Όνομα: </th>
+						<td id="onoma"></td>
+					</tr>
+					<tr>
+						<th scope="row">Επώνυμο: </th>
+						<td id="epwnumo"></td>
+					</tr>
+					<tr>
+						<th scope="row">Ηλεκτρονική Διεύθυνση: </th>
+						<td id="em"></td>
+					</tr>
+					<tr>
+						<th scope="row">Τηλέφωνο: </th>
+						<td id="ph"></td>
+					</tr>
+					<tr>
+						<th scope="row">Φύλλο: </th>
+						<td id="gen"></td>
+					</tr>
+					<tr>
+						<th scope="row">Α.Μ.Κ.Α.: </th>
+						<td id="armka"></td>
+					</tr>
+					<tr>
+						<th scope="row">Ημερομηνία: </th>
+						<td id="indate"></td>
+					</tr>
+					<tr>
+						<th scope="row">Ώρα: </th>
+						<td id="intime"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<script>
+
+			//Συνάρτηση για ορισμό ημερομηνίας
+			function setDate() {
+				//Δημιουργία τρέχουσας ημερομηνίας (χωρίς ορίσματα), η ημερομηνία θα έχει διαφορετική μορφή από το επιθυμητό
+				var d = new Date();
+				//Από την ημερομηνία πέρνουμε την ημέρα
+				var day = d.getDate();
+				//Από την ημερομηνία πέρνουμε τον μήνα. Η συνάρτηση getMonth() επιστρέφει τους μήνες στο διάστημα [0,11] οπότε έχουμε +1 για να είναι στο διάστημα [1,12]. Επίσης, το ραντεβού δεν θα γίνει την ίδια μέρα αλλά τον επόμενο οπότε έχουμε αλλο ένα +1 (Σύνολο +2)
+				var month = d.getMonth() + 2;				
+				//getYear, για 2021 επιστρέφει 121 που έχει διαφορά φάσης κατά 1900 μονάδες
+				var year = d.getYear() + 1900;
+
+				//Αν έχουμε Νοέμβριο ή Δεκέμβριο χρειάζεται να γίνει διόρθωση τιμών
+				if(month == 13){
+					//Το ραντεβού θα είναι τον Ιανουάριο επόμενου έτους
+					month = 1;
+					year = year + 1;
+				}
+				else if(month == 14){
+					//Το ραντεβού θα είναι τον Φεβρουάριο επόμενου έτους
+					month = 2;
+					year = year + 1;
+
+					//Ο Φεβρουάριος έχει 28-29 ημέρες
+					if(day > 29){
+						day = 28;
+					}
+				}
+				//Δημιουργούμε την κατάλληλη μορφή της ημερομηνίας				
+				if(month<9 && day<9){
+					var date = year+"-0"+month+"-0"+day;
+				}
+				else if(month<9){
+					var date = year+"-0"+month+"-"+day;
+				}
+				else if(day<9){
+					var date = year+"-"+month+"-0"+day;
+				}
+				else{
+					var date = year+"-"+month+"-"+day;
+				}
+				//Ορίζουμε στο πεδίο με id date, η ιδιότητα value να είναι η ημερομηνία που δημιουργήσαμε
+				$("#date").attr("value", date);
+			}
+			
+			//Αποστολή JSON δεδομένων σε REST υπηρεσία με το που πατηθεί το κουμπί με id ok
+			$(function () {				
+				$("#ok").click(function () {
+					//Ελέγχος ορισμένου φύλλου
+					if($("#male").val()){
+						var gender = "Άνδρας";
+					}
+					else{
+						var gender = "Γυναίκα";
+					}
+					//Δημιουργία μεταβλητής με τα δεδομένα που θα αποσταλούν στην υπηρεσία
+					var data = {
+						name: $("#username").val(),
+						surname: $("#surname").val(),
+						phone: $("#telephone").val(),
+						email: $("#email").val(),
+						gender: gender,
+						amka: $("#amka").val(),
+						date: $("#date").val(),
+						time: $("#time").val()
+					};					
+					
+					//Η κλίση AJAX
+					$.ajax({
+						//Ορίζουμε τον παραλλήπτη
+						url: "https://us-central1-unipi-aps.cloudfunctions.net/emvolioDate",
+						//Ορισμός επιθυμητής ενέργειας
+						type: "POST",
+						//Mετατρέπουμε τα δεδομένα σε String								
+						data: JSON.stringify(data),
+						//Ορίζουμε τον τύπο των δεδομένων και τύπο περιεχομένου
+						dataType: 'json',
+						contentType: 'application/json',
+						//Εάν έχουμε επιτυχής αποστολή εμφανίζει το ανάλογο μήνημα 
+						success: function(){
+			        		alert('Επιτυχής εγγραφή!');
+						}
+					})
+					.done(function (res) {						
+						//Ενημερώνουμε τα πεδία του πίνακα αποτελεσμάτων
+						$("#onoma").text(data.name);
+						$("#epwnumo").text(data.surname);
+						$("#em").text(data.email);
+						$("#ph").text(data.phone);
+						$("#gen").text(data.gender);
+						$("#armka").text(data.amka);
+						$("#indate").text(data.date);
+						$("#intime").text(data.time);
+					})
+					//Σε περίπτωση λάθους
+					.fail(function (error) {
+						console.error(error.status, error.responseText);
+						let errorElem = $("#error");
+						//Εάν έχει αριθμό 400 τότε έγινε απόριψη αιτήματος
+						if (error.status == 400) {
+							errorElem.text("Το αίτημα απορρίφθηκε.");
+						}
+						//Εάν έχει αριθμό 500 τότε έγινε κάποιο λάθος
+						if (error.status == 500) {
+							errorElem.text("Έχει γίνει κάποιο λάθος.");
+						}
+					});
+				});
+			});
+
+		</script>
+
+		<!--Στοιχεία Επικοινωνίας-->
+		<div id="contactus" class="container-fluid py-4">
+			<div class="row">
+				<div class="col">
+					<h2>Στοιχεία Επικοινωνίας</h2>
+				</div>
+			</div>
+
+			<div class="row">
+				<!--Geolocation-->
+				<div class="col-md-6 col-xs-12 mt-5">
+					<!--Ενσωματομένος χάρτης-->
+					<div class="embed-responsive embed-responsive-16by9">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3142.6136818025857!2d23.787996115325125!3d38.03278477971337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a198edaaf054d1%3A0x182534b46eb6e4d1!2zzpHOs8-BzqzPhs-Jzr0gMywgzpzOsc-Bzr_Pjc-DzrkgMTUxIDIz!5e0!3m2!1sel!2sgr!4v1621437421649!5m2!1sel!2sgr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-xs-12 mt-5">
+					<!--Στοιχεία επικοινωνίας με το ΕΟΔΥ Αθήνας. Οι κλάσεις "fas..." είναι για τα εικονίδια τοποθεσίας και τηλεφώνου. Τα πέρνουμε από την βιβλιοθήκη fontawesome.-->
+					<h5>ΕΟΔΥ Αθήνας</h5>
+					<p class="pt-2"><i class="fas fa-map-marker-alt"></i> Αγράφων 3-5, Μαρούσι, Τ.Κ. 151-23</p>
+					<p><i class="fas fa-phone"></i> 210 5212000</p>
+				</div>
+			</div>
+		</div>
+		
+		<!--Footer-->
+		<div id="footerinfo" class="container-fluid">
+			<footer>
+				<div class="row">
+					<div class="col my-4">
+						<p>Copyright &copy; 2021<a href="https://www.ds.unipi.gr/"> Βανδουλάκη Μαρία Φοιτήτρια Ψηφιακών Συστημάτων</a></p>
+					</div>
+				</div>
+			</footer>
+		</div>
+		
+	</body>
+</html>
